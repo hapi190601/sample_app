@@ -4,11 +4,8 @@ class TodolistsController < ApplicationController
   end
   
   def create
-    # データを新規登録するためのインスタンス作成
     list = List.new(list_params)
-    # データベースにデータを保存するメソッド
     list.save
-    #詳細画面にリダイレクト
     redirect_to todolist_path(list.id)
   end
   
@@ -31,9 +28,9 @@ class TodolistsController < ApplicationController
   end
   
   def destory
-    list = List.find(params[:id])  # データ（レコード）を1件取得
-    list.destroy  # データ（レコード）を削除
-    redirect_to todolists_path  # 投稿一覧画面へリダイレクト
+    list = List.find(params[:id])  
+    list.destroy
+    redirect_to todolists_path
   end
   
   
